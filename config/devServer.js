@@ -1,5 +1,4 @@
 const express = require('express');
-
 const { outputPath, publicFolder } = require('./paths');
 const { inDevelopment, PORT } = require('./envs');
 
