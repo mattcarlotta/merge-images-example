@@ -53,7 +53,7 @@ class Home extends Component {
           />
         )}
       </div>
-      {this.state.err && <p>{this.state.err} </p>}
+      {this.state.err && <p>{this.state.err}</p>}
     </div>
   );
 }
