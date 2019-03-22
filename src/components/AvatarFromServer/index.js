@@ -8,9 +8,9 @@ class AvatarFromServer extends Component {
   componentDidMount = () => {
     const { head, eyes, mouth } = this.props;
     mergeImages([
-      `../../images/${head}.png`,
-      `../../images/${eyes}.png`,
-      `../../images/${mouth}.png`,
+      `../../../images/${head}.png`,
+      `../../../images/${eyes}.png`,
+      `../../../images/${mouth}.png`,
     ])
       .then(src => this.setState({ src }))
       .catch(err => this.setState({ err: err.toString() }));

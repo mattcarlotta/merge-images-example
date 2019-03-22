@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import mergeImages from 'merge-images';
-import head from '../../images/head.png';
-import eyes from '../../images/eyes.png';
-import mouth from '../../images/mouth.png';
+import head from '../../../images/head.png';
+import eyes from '../../../images/eyes.png';
+import mouth from '../../../images/mouth.png';
 
 class AvatarFromFiles extends Component {
   state = { src: '', err: '' };

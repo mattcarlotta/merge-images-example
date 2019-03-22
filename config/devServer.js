@@ -23,6 +23,6 @@ module.exports = {
   contentBase: inDevelopment ? publicFolder : outputPath, // keep stats to minimal (only outputs for errors or new compilations)
   watchContentBase: true, //  watches changes in files/folders specified in contentBase
   setup(app) {
-    app.use('/images', express.static('src/images/')); // express will handle any GET requests to /images
+    app.use('/images', express.static('images')); // express will handle any GET requests to /images
   },
 };
