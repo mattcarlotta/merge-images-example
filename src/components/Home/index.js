@@ -11,7 +11,7 @@ export default () => (
       <h1 className={title}>React Starter Kit</h1>
       <h1 className={title}>Edit ./components and save to reload.</h1>
       <AvatarFromFiles />
-      <AvatarFromServer />
+      <AvatarFromServer head="head2" eyes="eyes2" mouth="mouth2" />
     </div>
   </div>
 );
