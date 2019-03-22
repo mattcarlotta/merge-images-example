@@ -7,6 +7,12 @@
   background-color: $navyblue;
 }
 
+.loading {
+  @include anim(flipIn infinite 2s linear);
+  margin-top: 20px;
+  height: 100px;
+}
+
 .logoContainer {
   @extend %centered;
   color: $white;
