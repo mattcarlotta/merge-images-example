@@ -2,24 +2,24 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import mergeImages from 'merge-images';
 
-const importAll = r => r.keys().map(r);
-
-const images = importAll(
-  require.context('../../images', false, /\.(png|jpe?g)$/),
-);
-
 class AvatarFromLazyFiles extends Component {
   state = { src: '', err: '' };
 
-  componentDidMount = () => {
-    const { headSelection, eyesSelection, mouthSelection } = this.props;
-    mergeImages([
-      images[headSelection],
-      images[eyesSelection],
-      images[mouthSelection],
-    ])
-      .then(src => this.setState({ src }))
-      .catch(err => this.setState({ err: err.toString() }));
+  componentDidMount = async () => {
+    try {
+      const { lazyHead: head, lazyEyes: eyes, lazyMouth: mouth } = this.props;
+      const headImage = await import(/* webpackMode: "lazy-once" */ `../../images/${head}.png`);
+      const eyesImage = await import(/* webpackMode: "lazy-once" */ `../../images/${eyes}.png`);
+      const mouthImage = await import(/* webpackMode: "lazy-once" */ `../../images/${mouth}.png`);
+      const src = await mergeImages([
+        headImage.default,
+        eyesImage.default,
+        mouthImage.default,
+      ]);
+      this.setState({ src });
+    } catch (err) {
+      this.setState({ err: err.toString() });
+    }
   };
 
   render = () => (
@@ -32,9 +32,9 @@ class AvatarFromLazyFiles extends Component {
 }
 
 AvatarFromLazyFiles.propTypes = {
-  headSelection: PropTypes.number.isRequired,
-  eyesSelection: PropTypes.number.isRequired,
-  mouthSelection: PropTypes.number.isRequired,
+  lazyHead: PropTypes.string.isRequired,
+  lazyEyes: PropTypes.string.isRequired,
+  lazyMouth: PropTypes.string.isRequired,
 };
 
 export default AvatarFromLazyFiles;

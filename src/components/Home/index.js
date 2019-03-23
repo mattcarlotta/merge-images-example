@@ -8,11 +8,11 @@ import { app, loading, logoContainer, title } from './styles.scss';
 
 const data = {
   head: 'head2',
-  headSelection: 5,
+  lazyHead: 'head3',
   eyes: 'eyes2',
-  eyesSelection: 2,
+  lazyEyes: 'eyes3',
   mouth: 'mouth2',
-  mouthSelection: 8,
+  lazyMouth: 'mouth3',
   cdn: 'https://i.imgur.com/foiVXpi.png',
 };
 
