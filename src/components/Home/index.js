@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import logo from '../../images/logo.svg';
 import AvatarFromFiles from '../AvatarFromFiles';
-import AvatarFromServer from '../AvatarFromServer';
-import { app, loading, logoContainer, logoStyle, title } from './styles.scss';
+import AvatarFromLazyFiles from '../AvatarFromLazyFiles';
+import AvatarFromLocalServer from '../AvatarFromLocalServer';
+import { app, loading, logoContainer, title } from './styles.scss';
 
 const data = {
   head: 'head2',
+  headSelection: 5,
   eyes: 'eyes2',
+  eyesSelection: 2,
   mouth: 'mouth2',
+  mouthSelection: 8,
 };
 
 const fetchAvatarFromAPI = status =>
@@ -39,18 +43,15 @@ class Home extends Component {
   render = () => (
     <div className={app}>
       <div className={logoContainer}>
-        <img className={logoStyle} src={logo} alt="" />
         <h1 className={title}>React Starter Kit</h1>
-        <h1 className={title}>Edit ./components and save to reload.</h1>
         <AvatarFromFiles />
         {this.state.isLoading ? (
           <img className={loading} src={logo} alt="" width={100} />
         ) : (
-          <AvatarFromServer
-            head={this.state.head}
-            eyes={this.state.eyes}
-            mouth={this.state.mouth}
-          />
+          <Fragment>
+            <AvatarFromLocalServer {...this.state} />
+            <AvatarFromLazyFiles {...this.state} />
+          </Fragment>
         )}
       </div>
       {this.state.err && <p>{this.state.err}</p>}

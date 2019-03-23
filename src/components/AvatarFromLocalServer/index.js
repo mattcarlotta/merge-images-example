@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import mergeImages from 'merge-images';
 
-class AvatarFromServer extends Component {
+class AvatarFromLocalServer extends Component {
   state = { src: '', err: '' };
 
   componentDidMount = () => {
@@ -18,17 +18,17 @@ class AvatarFromServer extends Component {
 
   render = () => (
     <Fragment>
-      <h5>Avatar From Server</h5>
+      <h5>Avatar From Local Server</h5>
       <img src={this.state.src} alt="avatar.png" />
       {this.state.err && <p>{this.state.err} </p>}
     </Fragment>
   );
 }
 
-AvatarFromServer.propTypes = {
+AvatarFromLocalServer.propTypes = {
   head: PropTypes.string.isRequired,
   eyes: PropTypes.string.isRequired,
   mouth: PropTypes.string.isRequired,
 };
 
-export default AvatarFromServer;
+export default AvatarFromLocalServer;
