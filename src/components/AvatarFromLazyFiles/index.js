@@ -8,9 +8,9 @@ class AvatarFromLazyFiles extends Component {
   componentDidMount = async () => {
     try {
       const { lazyHead: head, lazyEyes: eyes, lazyMouth: mouth } = this.props;
-      const headImage = await import(/* webpackMode: "lazy-once" */ `../../images/${head}.png`);
-      const eyesImage = await import(/* webpackMode: "lazy-once" */ `../../images/${eyes}.png`);
-      const mouthImage = await import(/* webpackMode: "lazy-once" */ `../../images/${mouth}.png`);
+      const headImage = await import(/* webpackMode: "lazy" */ `../../images/${head}.png`);
+      const eyesImage = await import(/* webpackMode: "lazy" */ `../../images/${eyes}.png`);
+      const mouthImage = await import(/* webpackMode: "lazy" */ `../../images/${mouth}.png`);
       const src = await mergeImages([
         headImage.default,
         eyesImage.default,
