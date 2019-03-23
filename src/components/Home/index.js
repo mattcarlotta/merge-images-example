@@ -1,5 +1,6 @@
 import React, { Fragment, Component } from 'react';
 import logo from '../../images/logo.svg';
+import AvatarFromCDN from '../AvatarFromCDN';
 import AvatarFromFiles from '../AvatarFromFiles';
 import AvatarFromLazyFiles from '../AvatarFromLazyFiles';
 import AvatarFromLocalServer from '../AvatarFromLocalServer';
@@ -45,6 +46,7 @@ class Home extends Component {
       <div className={logoContainer}>
         <h1 className={title}>React Starter Kit</h1>
         <AvatarFromFiles />
+        <AvatarFromCDN />
         {this.state.isLoading ? (
           <img className={loading} src={logo} alt="" width={100} />
         ) : (
