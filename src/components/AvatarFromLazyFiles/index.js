@@ -2,9 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import mergeImages from 'merge-images';
 
-function importAll(r) {
-  return r.keys().map(r);
-}
+const importAll = r => r.keys().map(r);
 
 const images = importAll(
   require.context('../../images', false, /\.(png|jpe?g)$/),
