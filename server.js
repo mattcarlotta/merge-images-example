@@ -9,7 +9,7 @@ const { HOST, PORT } = process.env;
 
 app.use(morgan('tiny')); // XHR request logging framework
 app.use(express.static('dist')); // express will serve up production assets
-app.use('/images', express.static('images'));
+app.use('/images', express.static('images')); // express will serve up images
 app.get('*', (req, res) =>
   res.sendFile(resolve(`${currentDirectory}/dist/index.html`)),
 ); // express will serve up the front-end index.html file if it doesn't recognize the route
