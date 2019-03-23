@@ -13,6 +13,7 @@ const data = {
   eyesSelection: 2,
   mouth: 'mouth2',
   mouthSelection: 8,
+  cdn: 'https://i.imgur.com/foiVXpi.png',
 };
 
 const fetchAvatarFromAPI = status =>
@@ -46,13 +47,13 @@ class Home extends Component {
       <div className={logoContainer}>
         <h1 className={title}>React Starter Kit</h1>
         <AvatarFromFiles />
-        <AvatarFromCDN />
         {this.state.isLoading ? (
           <img className={loading} src={logo} alt="" width={100} />
         ) : (
           <Fragment>
             <AvatarFromLocalServer {...this.state} />
             <AvatarFromLazyFiles {...this.state} />
+            <AvatarFromCDN src={this.state.cdn} />
           </Fragment>
         )}
       </div>
