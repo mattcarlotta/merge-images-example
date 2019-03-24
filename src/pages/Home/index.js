@@ -1,9 +1,9 @@
 import React, { Fragment, Component } from 'react';
 import logo from '../../images/logo.svg';
-import AvatarFromCDN from '../AvatarFromCDN';
-import AvatarFromFiles from '../AvatarFromFiles';
-import AvatarFromLazyFiles from '../AvatarFromLazyFiles';
-import AvatarFromLocalServer from '../AvatarFromLocalServer';
+import AvatarFromCDN from '../../components/AvatarFromCDN';
+import AvatarFromFiles from '../../components/AvatarFromFiles';
+import AvatarFromLazyFiles from '../../components/AvatarFromLazyFiles';
+import AvatarFromLocalServer from '../../components/AvatarFromLocalServer';
 import { app, loading, logoContainer, title } from './styles.scss';
 
 const data = {
@@ -36,9 +36,7 @@ class Home extends Component {
 
   fetchAvatar = () => {
     fetchAvatarFromAPI(200)
-      .then(({ data }) => {
-        this.setState({ isLoading: false, ...data });
-      })
+      .then(({ data }) => this.setState({ isLoading: false, ...data }))
       .catch(err => this.setState({ err: err.toString() }));
   };
 

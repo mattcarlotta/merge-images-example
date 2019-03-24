@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const AvatarFromCDN = ({ src }) => (
   <Fragment>
     <h5>Avatar From CDN</h5>
-    <img src={src} alt="avatar" />
+    <img src={src} alt="avatar.png" />
   </Fragment>
 );
 
